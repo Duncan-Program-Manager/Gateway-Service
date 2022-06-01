@@ -23,6 +23,18 @@ public class SpringCloudConfig {
             .route(r -> r.path("/auth/**")
                 .filters(f -> f.filter(filter))
                 .uri("lb://AUTHENTICATIONAPI"))
+            .route(r -> r.path("/program/**")
+                .filters(f -> f.filter(filter))
+                .uri("lb://PROGRAMAPI"))
+            .route(r -> r.path("/user/**")
+                .filters(f -> f.filter(filter))
+                .uri("lb://USERAPI"))
+            .route(r -> r.path("/template/**")
+                .filters(f -> f.filter(filter))
+                .uri("lb://TEMPLATEAPI"))
+            .route(r -> r.path("/scanner/**")
+                .filters(f -> f.filter(filter))
+                .uri("lb://VIRUSSCANNERAPI"))
             .build();
     }
     //TODO thinking about possible circuitBreaker implementation against poorly behaving services: resilience4j dependency
