@@ -38,5 +38,4 @@ public class SpringCloudConfig {
             .build();
     }
     //TODO thinking about possible circuitBreaker implementation against poorly behaving services: resilience4j dependency
-
 }
