@@ -2,7 +2,7 @@ server:
     port: 8080
 
 jwt:
-    secret: "test"
+    secret: "tester_key_is_a_good_key"
 
 spring:
     main:
