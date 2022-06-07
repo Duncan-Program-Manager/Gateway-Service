@@ -26,14 +26,14 @@ public class AuthenticationFilter implements GatewayFilter {
         ServerHttpRequest request = exchange.getRequest();
         exchange.getResponse().getHeaders().set("Access-Control-Allow-Origin", "*");
 
-        if (exchange.getResponse().getHeaders().getAccessControlRequestMethod() != null
-            && "OPTIONS".equals(exchange.getResponse().getHeaders().getAccessControlRequestMethod())) {
-            // CORS "pre-flight" request
-            exchange.getResponse().getHeaders().set("Access-Control-Allow-Methods",
-                "GET, POST, PUT, DELETE");
-            exchange.getResponse().getHeaders().set("Access-Control-Allow-Headers",
-                "X-Requested-With,Origin,Content-Type,Accept");
-        }
+//        if (exchange.getResponse().getHeaders().getAccessControlRequestMethod() != null
+//            && "OPTIONS".equals(exchange.getResponse().getHeaders().getAccessControlRequestMethod())) {
+//            // CORS "pre-flight" request
+//            exchange.getResponse().getHeaders().set("Access-Control-Allow-Methods",
+//                "GET, POST, PUT, DELETE");
+//            exchange.getResponse().getHeaders().set("Access-Control-Allow-Headers",
+//                "X-Requested-With,Origin,Content-Type,Accept");
+//        }
 
         if (routerValidator.isSecured.test(request)) {
             if (this.isAuthMissing(request))
