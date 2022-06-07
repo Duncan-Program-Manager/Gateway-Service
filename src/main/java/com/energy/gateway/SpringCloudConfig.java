@@ -16,6 +16,10 @@ public class SpringCloudConfig {
     @Bean
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
+                .route(r -> r
+                        .path("/test/**")
+                        .filters(f -> f.addRequestHeader("something", "something"))
+                        .uri("lb://FIRST-SERVICE"))
             .route(r -> r.path("/auth/**")
                 .filters(f -> f.filter(filter))
                 .uri("lb://authapi"))
