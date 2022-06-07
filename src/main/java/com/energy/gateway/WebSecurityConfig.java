@@ -16,7 +16,7 @@ public class WebSecurityConfig extends CorsConfiguration {
         final CorsConfiguration corsConfig = new CorsConfiguration();
         corsConfig.setAllowedOrigins(Collections.singletonList("*"));
         corsConfig.setMaxAge(3600L);
-        corsConfig.setAllowedMethods(Arrays.asList("GET", "POST"));
+        corsConfig.setAllowedMethods(Arrays.asList("GET", "POST", "OPTIONS"));
         corsConfig.addAllowedHeader("*");
         corsConfig.setAllowedOrigins(Arrays.asList("*"));
 
