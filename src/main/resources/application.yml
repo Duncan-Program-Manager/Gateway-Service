@@ -10,7 +10,15 @@ spring:
     application:
         name: api-gateway
     cloud:
-      kubernetes:
+        gateway:
+          globalcors:
+              add-to-simple-url-handler-mapping: true
+              cors-configurations:
+                '[/**]':
+                    allowedOrigins: "*"
+                    allowedMethods: "*"
+                    allowedHeaders: "*"
+        kubernetes:
         reload:
             enabled: false
             url-expression: "uri+'/'"
@@ -20,4 +28,3 @@ spring:
                 enabled: false
                 url-expression: "http://'+serviceId+':'+getPort()"
                 lower-case-service-id: true
-
